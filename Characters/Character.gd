@@ -4,11 +4,15 @@ class_name Character
 #Basic character script. All creatures will inherit from this script
 
 const TILE_SIZE = 16
-const BASE_SPEED = 0.2
+const FLOOR_NORMAL = Vector2.ZERO
+const BASE_SPEED = 5
+const BASE_ACCEL = 0.2
 
-export(int) var hp = 1
+#STATS
+export(int) var max_hp = 1
 export(int) var mana = 1
-export(float) var speed = BASE_SPEED
+export(int) var strength = 1
+
 
 
 
