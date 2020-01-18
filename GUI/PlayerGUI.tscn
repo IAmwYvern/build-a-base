@@ -12,6 +12,10 @@
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
+safe_zone_color = Color( 1, 1, 1, 1 )
+caution_zone_color = Color( 1, 0.772549, 0, 1 )
+danger_zone_color = Color( 1, 0.184314, 0.184314, 1 )
+danger_zone_hit_color = Color( 0.592157, 0, 1, 1 )
 
 [node name="Manabar" type="TextureProgress" parent="."]
 margin_left = 7.01659

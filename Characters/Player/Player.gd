@@ -11,6 +11,7 @@ var velocity = Vector2()
 var speed_mod:int = 3
 var move_speed:float = TILE_SIZE * BASE_SPEED + speed_mod
 var sprint_mod:float = BASE_SPEED + move_speed 
+var crouch_mod:float = move_speed/2
 
 #LEVELING SYSTEM
 var level:int = 1
@@ -37,11 +38,12 @@ func _get_input() -> void:
 		-int(Input.is_action_pressed("move_up")) + int(Input.is_action_pressed("move_down"))
 	)
 	var is_sprinting = int(Input.is_action_pressed("sprint"))
+	var is_crouching = int(Input.is_action_pressed("crouch")) if not is_sprinting else 0
 	
 	#accelerate on the x axis
 	velocity.x = lerp(
 		velocity.x, 
-		(move_speed + (is_sprinting * sprint_mod)) * move_direction.x, 
+		(move_speed + (is_sprinting * sprint_mod) - (is_crouching * crouch_mod)) * move_direction.x, 
 		BASE_ACCEL
 	)
 	
