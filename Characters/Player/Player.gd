@@ -7,11 +7,13 @@ signal took_damage(damage, current_health)
 var current_hp:int = max_hp
 
 #MOVEMENT 
+var move_direction = Vector2()
 var velocity = Vector2()
 var speed_mod:int = 3
 var move_speed:float = TILE_SIZE * BASE_SPEED + speed_mod
 var sprint_mod:float = BASE_SPEED + move_speed 
 var crouch_mod:float = move_speed/2
+var dash_mod:float = TILE_SIZE / 2
 
 #LEVELING SYSTEM
 var level:int = 1
@@ -25,20 +27,21 @@ func _ready():
 	$Camera2D/CanvasLayer/PlayerGUI.init(max_hp)
 
 func _physics_process(delta):
-	_get_input()
+	move_direction = _get_input()
 	if Input.is_action_just_pressed("ui_select"):
 		take_damage(1)
 		print("ok boomer")
-	print(current_hp)
+	print(move_direction)
 	velocity = move_and_slide(velocity, FLOOR_NORMAL)
 
-func _get_input() -> void:
+func _get_input() -> Vector2:
 	var move_direction = Vector2(
 		-int(Input.is_action_pressed("move_left")) + int(Input.is_action_pressed("move_right")),
 		-int(Input.is_action_pressed("move_up")) + int(Input.is_action_pressed("move_down"))
 	)
 	var is_sprinting = int(Input.is_action_pressed("sprint"))
 	var is_crouching = int(Input.is_action_pressed("crouch")) if not is_sprinting else 0
+	var is_dashing = int(Input.is_action_just_pressed("dash"))
 	
 	#accelerate on the x axis
 	velocity.x = lerp(
@@ -50,9 +53,10 @@ func _get_input() -> void:
 	#acelerate on the y axis
 	velocity.y = lerp(
 		velocity.y, 
-		(move_speed + (is_sprinting * sprint_mod)) * move_direction.y, 
+		(move_speed + (is_sprinting * sprint_mod) - (is_crouching * crouch_mod)) * move_direction.y, 
 		BASE_ACCEL
 	)
+	return move_direction
 	
 #LEVEL MATHS
 func get_required_experience(level):

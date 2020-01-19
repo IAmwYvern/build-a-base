@@ -1,0 +1,36 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://GUI/panel.png" type="Texture" id=1]
+
+[node name="InventoryGUI" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 64.0
+margin_top = 32.0
+margin_right = -64.0
+margin_bottom = -32.0
+
+[node name="Panel" type="TextureRect" parent="."]
+modulate = Color( 0, 0.882353, 1, 0.486275 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 1 )
+expand = true
+stretch_mode = 7
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 8.0
+margin_top = 8.0
+margin_right = -8.0
+margin_bottom = -8.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer"]
+margin_right = 368.0
+margin_bottom = 176.0
+
+[node name="panel" type="Sprite" parent="Panel/MarginContainer/HBoxContainer"]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 12.474, 13.9213 )
+texture = ExtResource( 1 )
