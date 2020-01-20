@@ -5,25 +5,25 @@
 [ext_resource path="res://fonts/Pixellari.ttf" type="DynamicFontData" id=3]
 
 [sub_resource type="DynamicFont" id=1]
+outline_size = 1
+outline_color = Color( 0.0745098, 0.0705882, 0.129412, 1 )
 font_data = ExtResource( 3 )
 
 [node name="ItemButton" type="TextureButton"]
-modulate = Color( 1, 1, 1, 0.470588 )
-margin_right = 40.0
-margin_bottom = 40.0
+modulate = Color( 1, 1, 1, 0.780392 )
+margin_left = 0.166084
+margin_right = 48.1661
 texture_normal = ExtResource( 1 )
-expand = true
 
-[node name="wooden_sword" type="Sprite" parent="."]
-position = Vector2( 19.2951, 19.6775 )
-scale = Vector2( 1.5, 1.5 )
+[node name="ItemTexture" type="Sprite" parent="."]
+position = Vector2( 23.6754, 22.8304 )
+scale = Vector2( 2, 2 )
 texture = ExtResource( 2 )
 
-[node name="Label" type="Label" parent="."]
-margin_left = 28.825
-margin_top = 28.1057
-margin_right = 68.825
-margin_bottom = 44.1057
-rect_scale = Vector2( 0.5, 0.5 )
+[node name="QuantityLabel" type="Label" parent="."]
+margin_left = 34.2364
+margin_top = 29.7889
+margin_right = 74.2364
+margin_bottom = 45.7889
 custom_fonts/font = SubResource( 1 )
 text = "1"
