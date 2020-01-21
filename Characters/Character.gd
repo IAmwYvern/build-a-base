@@ -9,9 +9,12 @@ const BASE_SPEED = 5
 const BASE_ACCEL = 0.2
 
 #STATS
-export(int) var max_hp = 1
-export(int) var mana = 1
-export(int) var strength = 1
+export var max_hp : int
+export var max_mana : int
+export var strength : int
+export var dexterity : int
+export var mining : int
+export var stamina : int
 
 
 

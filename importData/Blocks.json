@@ -1,0 +1,20 @@
+[
+ {
+   "BlockName": "Wood\n",
+   "BlockToolTip": "axe",
+   "BlockResistance": 0,
+   "BlockDurability": 15
+ },
+ {
+   "BlockName": "Dirt",
+   "BlockToolTip": "shovel",
+   "BlockResistance": 0,
+   "BlockDurability": 5
+ },
+ {
+   "BlockName": "Stone",
+   "BlockToolTip": "pickaxe",
+   "BlockResistance": 5,
+   "BlockDurability": 25
+ }
+]

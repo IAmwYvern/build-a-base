@@ -24,14 +24,13 @@ var experience_required:int = get_required_experience(level + 1)
 func _ready():
 	max_hp = 10
 	current_hp = 10
-	$Camera2D/CanvasLayer/PlayerGUI.init(max_hp)
+	$Overlays/PlayerGUI.init(max_hp)
 
 func _physics_process(delta):
 	move_direction = _get_input()
 	if Input.is_action_just_pressed("ui_select"):
 		take_damage(1)
 		print("ok boomer")
-	print(move_direction)
 	velocity = move_and_slide(velocity, FLOOR_NORMAL)
 
 func _get_input() -> Vector2:
@@ -43,6 +42,11 @@ func _get_input() -> Vector2:
 	var is_crouching = int(Input.is_action_pressed("crouch")) if not is_sprinting else 0
 	var is_dashing = int(Input.is_action_just_pressed("dash"))
 	
+	if Input.is_action_just_pressed("open_inventory"):
+		if $Overlays/InventoryGUI.visible == true:
+			$Overlays/InventoryGUI.visible = false
+		else:
+			$Overlays/InventoryGUI.visible = true
 	#accelerate on the x axis
 	velocity.x = lerp(
 		velocity.x, 
@@ -75,7 +79,7 @@ func level_up():
 	
 	max_hp += 5
 	strength += 5
-	mana += 5
+	max_mana += 5
 	
 func take_damage(damage):
 	current_hp -= damage
