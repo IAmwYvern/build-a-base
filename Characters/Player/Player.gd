@@ -13,7 +13,6 @@ var speed_mod:int = 3
 var move_speed:float = TILE_SIZE * BASE_SPEED + speed_mod
 var sprint_mod:float = BASE_SPEED + move_speed 
 var crouch_mod:float = move_speed/2
-var dash_mod:float = TILE_SIZE / 2
 
 #LEVELING SYSTEM
 var level:int = 1
@@ -27,14 +26,14 @@ func _ready():
 	$Overlays/PlayerGUI.init(max_hp)
 
 func _physics_process(delta):
-	move_direction = _get_input()
+	_get_input()
 	if Input.is_action_just_pressed("ui_select"):
 		take_damage(1)
 		print("ok boomer")
 	velocity = move_and_slide(velocity, FLOOR_NORMAL)
 
-func _get_input() -> Vector2:
-	var move_direction = Vector2(
+func _get_input() -> void:
+	move_direction = Vector2(
 		-int(Input.is_action_pressed("move_left")) + int(Input.is_action_pressed("move_right")),
 		-int(Input.is_action_pressed("move_up")) + int(Input.is_action_pressed("move_down"))
 	)
@@ -60,7 +59,6 @@ func _get_input() -> Vector2:
 		(move_speed + (is_sprinting * sprint_mod) - (is_crouching * crouch_mod)) * move_direction.y, 
 		BASE_ACCEL
 	)
-	return move_direction
 	
 #LEVEL MATHS
 func get_required_experience(level):

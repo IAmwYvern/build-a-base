@@ -22,7 +22,4 @@ func _init_backpack_slots(rows):
 		var item_button = ItemButtonScene.instance()
 		BackpackContainer.add_child(item_button)
 		item_button.set_qty(0)
-		item_button.set_texture(null)
-		
-		
-		
+		item_button.set_texture(null)	
