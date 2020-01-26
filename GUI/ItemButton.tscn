@@ -48,7 +48,6 @@ margin_bottom = -3.15208
 rect_scale = Vector2( 0.5, 0.5 )
 custom_styles/normal = SubResource( 2 )
 custom_fonts/font = SubResource( 3 )
-text = "name"
 [connection signal="mouse_entered" from="." to="." method="_on_ItemButton_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_ItemButton_mouse_exited"]
 [connection signal="quantity_changed" from="." to="." method="_on_ItemButton_quantity_changed"]

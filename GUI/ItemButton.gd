@@ -2,22 +2,18 @@ extends TextureButton
 
 signal quantity_changed(qty)
 
-func _ready():
-	init(Item.new("test", 5, load("res://items/sand_block_item.png")))
-
-func init(Item):
-	set_name(Item.name)
-	set_qty(Item.quantity)
-	set_texture(Item.texture)
+func set_item(Item):
+	_set_name(Item.name)
+	_set_qty(Item.quantity)
+	_set_texture(Item.texture)
 	
-func set_name(name):
-	$NameLabel.text = name
-
-func set_qty(amount):
+func _set_name(name):
+	if not name == null:
+		$NameLabel.text = name
+func _set_qty(amount):
 	$QuantityLabel.text = str(amount)
 	emit_signal("quantity_changed", amount)
-
-func set_texture(newTexture : Texture):
+func _set_texture(newTexture : Texture):
 	$ItemTexture.texture = newTexture
 
 #SIGNALS

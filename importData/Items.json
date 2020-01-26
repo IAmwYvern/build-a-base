@@ -1,0 +1,12 @@
+[
+  {
+    "ItemName": "sand_item",
+    "Rarity": "common",
+    "MaxStackSize": 99
+  },
+  {
+    "ItemName": "dirt_item",
+    "Rarity": "common",
+    "MaxStackSize": 99
+  }
+]

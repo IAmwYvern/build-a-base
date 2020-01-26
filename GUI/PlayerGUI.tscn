@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://GUI/PlayerGUI.gd" type="Script" id=1]
 [ext_resource path="res://GUI/lifebar_assets/under.png" type="Texture" id=2]
@@ -7,6 +7,8 @@
 [ext_resource path="res://GUI/manabar_assets/under.png" type="Texture" id=5]
 [ext_resource path="res://GUI/manabar_assets/over.png" type="Texture" id=6]
 [ext_resource path="res://GUI/manabar_assets/progress.png" type="Texture" id=7]
+
+[sub_resource type="ShaderMaterial" id=3]
 
 [node name="PlayerGUI" type="Control"]
 anchor_right = 1.0
@@ -45,11 +47,12 @@ texture_progress = ExtResource( 4 )
 [node name="HitAnimation" type="Tween" parent="Lifebar"]
 
 [node name="Manabar" type="TextureProgress" parent="."]
+material = SubResource( 3 )
 margin_left = 7.01659
 margin_top = 20.4384
 margin_right = 135.017
 margin_bottom = 36.4384
-value = 50.0
+value = 100.0
 texture_under = ExtResource( 5 )
 texture_over = ExtResource( 6 )
 texture_progress = ExtResource( 7 )

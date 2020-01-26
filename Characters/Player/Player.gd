@@ -29,7 +29,6 @@ func _physics_process(delta):
 	_get_input()
 	if Input.is_action_just_pressed("ui_select"):
 		take_damage(1)
-		print("ok boomer")
 	velocity = move_and_slide(velocity, FLOOR_NORMAL)
 
 func _get_input() -> void:
