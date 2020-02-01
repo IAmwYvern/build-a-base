@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/progress.png-6de13f965ab3e535464f979e5ac5383d.stex"
+path="res://.import/over.png-97f8108ad5579fd888294e5c3d963901.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://GUI/lifebar_assets/progress.png"
-dest_files=[ "res://.import/progress.png-6de13f965ab3e535464f979e5ac5383d.stex" ]
+source_file="res://assets/textures/GUI/lifebar_assets/over.png"
+dest_files=[ "res://.import/over.png-97f8108ad5579fd888294e5c3d963901.stex" ]
 
 [params]
 

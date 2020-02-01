@@ -1,9 +1,9 @@
 [gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://GUI/InventoryGUI.gd" type="Script" id=1]
-[ext_resource path="res://GUI/back-panel.png" type="Texture" id=2]
+[ext_resource path="res://assets/textures/GUI/back-panel.png" type="Texture" id=2]
 [ext_resource path="res://fonts/Pixellari.ttf" type="DynamicFontData" id=3]
-[ext_resource path="res://Characters/Player/placeholder-link.png" type="Texture" id=4]
+[ext_resource path="res://assets/textures/player/placeholder-link.png" type="Texture" id=4]
 [ext_resource path="res://GUI/EquipmentButton.tscn" type="PackedScene" id=5]
 
 [sub_resource type="DynamicFont" id=1]
@@ -75,6 +75,7 @@ margin_right = 144.0
 columns = 8
 
 [node name="Header" type="HBoxContainer" parent="MarginContainer/TextureRect/MarginContainer/VBoxContainer"]
+editor/display_folded = true
 margin_top = 43.0
 margin_right = 289.0
 margin_bottom = 59.0
@@ -121,6 +122,7 @@ margin_bottom = 45.0
 text = "                "
 
 [node name="GridContainer2" type="GridContainer" parent="MarginContainer/TextureRect/MarginContainer/VBoxContainer/BackpackContainer"]
+editor/display_folded = true
 margin_left = 72.0
 margin_right = 88.0
 margin_bottom = 76.0

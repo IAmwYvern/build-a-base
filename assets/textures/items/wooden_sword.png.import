@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/sand_block_item.png-306977e5d7051c2d1c8ff405f804fac9.stex"
+path="res://.import/wooden_sword.png-acd48206e027f8612af375c047666dcb.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://items/sand_block_item.png"
-dest_files=[ "res://.import/sand_block_item.png-306977e5d7051c2d1c8ff405f804fac9.stex" ]
+source_file="res://assets/textures/items/wooden_sword.png"
+dest_files=[ "res://.import/wooden_sword.png-acd48206e027f8612af375c047666dcb.stex" ]
 
 [params]
 
