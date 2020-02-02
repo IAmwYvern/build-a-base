@@ -1,6 +1,6 @@
 extends TextureButton
 
-var current_item
+var current_item : Item
 var is_hovering = false
 
 signal quantity_changed(qty)
@@ -18,6 +18,8 @@ func get_item():
 func clear():
 	current_item = Item.new("", 0, null)
 	_set_name("")
+	emit_signal("quantity_changed", 0)
+	$NameLabel.visible = false
 	_set_qty(0)
 	_set_texture(null)
 	
@@ -43,9 +45,12 @@ func _on_ItemButton_mouse_exited():
 
 
 func _on_ItemButton_pressed():
-	if not is_hovering:
+	if ItemHoverData.inventory_item_hover == null:
+		emit_signal("item_set_hover", current_item)
 		$ItemHover.set_item(current_item)
 		$ItemHover.visible = true
-		current_item = null
 		is_hovering = true
+		clear()
 	
+func _process(delta):
+	print(current_item)

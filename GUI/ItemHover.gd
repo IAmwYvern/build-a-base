@@ -6,9 +6,11 @@ func _ready():
 
 func _process(delta):
 	if get_parent().is_hovering == true:
-		position = get_global_mouse_position()
+		position = get_global_mouse_position() 
 	
 func set_item(item : Item):
+	if item == null:
+		return
 	if not item.quantity == 0:
 		_set_quantity(item.quantity)
 	if not item.texture == null:

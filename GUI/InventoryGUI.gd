@@ -1,6 +1,6 @@
 extends Control
 
-onready var ItemsContainer = $MarginContainer/TextureRect/MarginContainer/VBoxContainer/Items/GridContainer
+onready var ItemsContainer =$MarginContainer/TextureRect/MarginContainer/VBoxContainer/Items/GridContainer
 onready var BackpackContainer = $MarginContainer/TextureRect/MarginContainer/VBoxContainer/BackpackContainer/GridContainer
 
 var items:Array = []
@@ -16,7 +16,8 @@ func _init_item_slots():
 	for i in ItemsContainer.columns :
 		var item_button = item_button_scene.instance()
 		ItemsContainer.add_child(item_button)
-		item_button.set_item(Item.new(null, 0, null))
+		item_button.connect("item_set_hover", $ItemHoverData, "_on_item_set_hover")
+		item_button.clear()
 		
 func _init_backpack_slots(rows):
 	for i in BackpackContainer.columns * rows:
@@ -24,9 +25,9 @@ func _init_backpack_slots(rows):
 		BackpackContainer.add_child(item_button)
 		item_button.name = str(i)
 		item_button.clear()
+		item_button.connect("item_set_hover", $ItemHoverData, "_on_item_set_hover")
 		if i < 5:
-			item_button.set_item(Item.new("sand", 10, load("res://assets/textures/items/sand_block_item.png")))
+			item_button.set_item(Item.new("sand", i, load("res://assets/textures/items/sand_block_item.png")))
 			items.push_back(item_button.get_item())
 
 
-	
