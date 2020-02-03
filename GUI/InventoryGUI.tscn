@@ -33,6 +33,7 @@ margin_bottom = -34.0001
 [node name="TextureRect" type="TextureRect" parent="MarginContainer"]
 margin_right = 305.0
 margin_bottom = 188.0
+mouse_filter = 2
 texture = ExtResource( 2 )
 expand = true
 stretch_mode = 6
@@ -76,7 +77,6 @@ margin_right = 144.0
 columns = 8
 
 [node name="Header" type="HBoxContainer" parent="MarginContainer/TextureRect/MarginContainer/VBoxContainer"]
-editor/display_folded = true
 margin_top = 43.0
 margin_right = 289.0
 margin_bottom = 59.0

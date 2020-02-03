@@ -1,7 +1,7 @@
 extends TextureButton
 
 var current_item : Item
-var is_hovering = false
+var is_hovering : bool = false 
 
 signal quantity_changed(qty)
 signal item_set_hover(item)
@@ -43,14 +43,10 @@ func _on_ItemButton_mouse_exited():
 	if not $QuantityLabel.text == "" :
 		$NameLabel.visible = false
 
-
 func _on_ItemButton_pressed():
-	if ItemHoverData.inventory_item_hover == null:
+	if not ItemHoverData.inventory_item_hover is Reference:
 		emit_signal("item_set_hover", current_item)
 		$ItemHover.set_item(current_item)
 		$ItemHover.visible = true
 		is_hovering = true
 		clear()
-	
-func _process(delta):
-	print(current_item)

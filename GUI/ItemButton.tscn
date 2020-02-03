@@ -20,6 +20,8 @@ font_data = ExtResource( 3 )
 self_modulate = Color( 1, 1, 1, 0.764706 )
 margin_right = 16.0
 margin_bottom = 16.0
+focus_mode = 0
+enabled_focus_mode = 0
 texture_normal = ExtResource( 1 )
 script = ExtResource( 2 )
 
