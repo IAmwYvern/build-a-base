@@ -1,0 +1,21 @@
+extends Node
+
+enum RARITIES {
+	COMMON = 0
+	UNCOMMON = 1
+	RARE = 2
+	EPIC = 3
+	LEGENDARY = 4
+	CELESTIAL = 5
+	}
+
+enum SLOT_TYPE {
+	NONE = 0
+	ARMOR_HEAD = 1
+	ARMOR_CHEST = 2
+	ARMOR_LEGS = 3
+	DYE_HEAD = 4
+	DYE_CHEST = 5
+	DYE_LEGS =6
+	}
+	

@@ -7,8 +7,8 @@ signal took_damage(damage, current_health)
 var current_hp:int = max_hp
 
 #MOVEMENT 
-var move_direction = Vector2()
-var velocity = Vector2()
+var move_direction := Vector2()
+var velocity := Vector2()
 var speed_mod:int = 3
 var move_speed:float = TILE_SIZE * BASE_SPEED + speed_mod
 var sprint_mod:float = BASE_SPEED + move_speed 
@@ -20,7 +20,7 @@ var experience:int = 0
 var experience_total:int = 0
 var experience_required:int = get_required_experience(level + 1)
 
-func _ready():
+func _ready() -> void:
 	max_hp = 10
 	current_hp = 10
 	$Overlays/PlayerGUI.init(max_hp)
@@ -40,11 +40,6 @@ func _get_input() -> void:
 	var is_crouching = int(Input.is_action_pressed("crouch")) if not is_sprinting else 0
 	var is_dashing = int(Input.is_action_just_pressed("dash"))
 	
-	if Input.is_action_just_pressed("open_inventory"):
-		if $Overlays/InventoryGUI.visible == true:
-			$Overlays/InventoryGUI.visible = false
-		else:
-			$Overlays/InventoryGUI.visible = true
 	#accelerate on the x axis
 	velocity.x = lerp(
 		velocity.x, 
@@ -60,7 +55,7 @@ func _get_input() -> void:
 	)
 	
 #LEVEL MATHS
-func get_required_experience(level):
+func get_required_experience(level) -> float:
 	return round(pow(level, 2) + level * 4 + 8 )
 
 func gain_experience(amount):
@@ -69,7 +64,7 @@ func gain_experience(amount):
 	if experience >= experience_required:
 		level_up()
 		
-func level_up():
+func level_up() -> void:
 	experience = 0
 	level += 1
 	experience_required = get_required_experience(level + 1)
@@ -78,7 +73,7 @@ func level_up():
 	strength += 5
 	max_mana += 5
 	
-func take_damage(damage):
-	current_hp -= damage
-	emit_signal("took_damage", damage, current_hp)
+func take_damage(amount) -> void:
+	current_hp -= amount
+	emit_signal("took_damage", amount, current_hp)
 	
